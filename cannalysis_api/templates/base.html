@@ -1,0 +1,33 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Cannalysis</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1>Cannalysis API Demonstration</h1>
+    <ul>
+        <li><a href="{{ url_for('cannalysis_api.index') }}">Home</a>
+        <li><a href="{{ url_for('requester.history') }}">Request History</a>
+    </ul>
+</nav>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+
+    {% block content %}
+    {% if g.user %}
+    <h2>Welcome</span></h2>
+    <p>Make a valid API request to get started.</p>
+    <a href="{{ url_for('requester.new') }}">
+
+    </a>
+    {% else %}
+    <p>
+        Please login or register.
+    </p>
+    {% endif %}
+    {% endblock content %}
+</section>

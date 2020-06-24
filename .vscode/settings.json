@@ -1,0 +1,17 @@
+{
+    //Python Settings
+    /* Global Editor */
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "python.pythonPath": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/python",
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/yapf",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/flake8"
+}
