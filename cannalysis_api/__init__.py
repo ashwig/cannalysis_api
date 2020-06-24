@@ -30,4 +30,9 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    # Req Page
+    from . import requester
+    app.register_blueprint(requester.bp)
+    app.add_url_rule('/requester', endpoint='requester.index')
+
     return app
