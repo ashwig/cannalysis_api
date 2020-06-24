@@ -3,6 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from flask import Flask
+from werkzeug.utils import import_string
 
 
 class CannalysisAPIConfig(object):
@@ -15,6 +16,16 @@ class CannalysisAPIConfig(object):
     METRC_USER_KEY = ''
     METRC_URI = ''
     METRC_DOCS = ''
+    HOST = ''
+    PORT = ''
+
+    @property
+    def HOST(self):
+        return self.HOST
+
+    @property
+    def PORT(self):
+        return self.PORT
 
     def init(self):
         self.ENV_PATH = Path('..') / '.env'
@@ -59,9 +70,22 @@ class CannalysisAPIConfigTesting(CannalysisAPIConfig):
 
 
 def create_app(test_config=None):
+    cfg = import_string('CannalysisAPIConfigDevelopment')()
+
     app = Flask(__name__, instance_relative_config=True)
 
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
     else:
-        app.config.from_object()
+        app.config.from_object(cfg)
+
+    try:
+        os.makedirs('app.instance_path')
+    except OSError:
+        pass
+
+    @app.route("/helloworld")
+    def helloworld():
+        return 'Hello, world!'
+
+    return app
