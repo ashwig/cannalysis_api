@@ -1,0 +1,8 @@
+recursive-include cannalysis_api/static *
+recursive-include cannalysis_api/templates *
+
+include cannalysis_api/schema.sqlite
+include .env
+graft cannalysis_api/static
+graft cannalysis_api/templates
+global-exclude *.pyc
