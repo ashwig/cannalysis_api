@@ -2,19 +2,24 @@
 
 {% block header %}
 <h1>{% block title %}Request History{% endblock %}</h1>
-<a class="action" href="{{ url_for('requests.new') }}">New</a>
+<a class="action" href="{{ url_for('requester.new') }}">New</a>
 {% endblock %}
 
 {% block content %}
 {% for req in reqs %}
-<article class="req">
+<article class="metrcresponses">
     <header>
         <div>
-            <h1>{{ req['request_string'] }}</h1>
-            <div class="about">on {{ req['created'].strftime('%Y-%m-%d') }}</div>
+            <h1>Request Number {{ metrcresponses['id'] }}</h1>
+            <div class="about">
+                created on {{ metrcresponses['created'].strftime('%Y-%m-%d') }}
+                using the request string: {{ metrcresponses['request_string'] }}
+            </div>
         </div>
     </header>
-    <p class="body">{{ req['request_string'] }}</p>
+    <p class="body">
+        {{ metrcresponses['json_body'] }}
+    </p>
 </article>
 {% if not loop.last %}
 <hr>

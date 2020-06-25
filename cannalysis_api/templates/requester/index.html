@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{% block title %}Requests{% endblock %}</h1>
-<a class="action" href="{{ url_for('requester.new') }}">New</a>
-<a class="action" href="{{ url_for('requester.history') }}">History</a>
+<div>
+    <h1>{% block title %}Requests{% endblock %}</h1>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <div><a class="action" href="{{ url_for('requester.new') }}">New</a></div><br>
+
+    <div><a class="action" href="{{ url_for('requester.history') }}">History</a></div>
+</div>
 {% endblock %}

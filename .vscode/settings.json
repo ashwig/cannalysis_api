@@ -7,9 +7,31 @@
     "python.formatting.provider": "yapf",
     "python.formatting.yapfPath": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/yapf",
     "python.linting.enabled": true,
+    "python.linting.mypyEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pydocstylePath": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/pydocstyle",
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/flake8"
+    "python.linting.flake8Path": "/home/ahellwig/anaconda3/envs/cannalysis_env/bin/flake8",
+    // Jinja
+    "html.format.enable": false,
+    "css.validate": false,
+    "html.validate.scripts": false,
+    "html.validate.styles": false,
+    "javascript.validate.enable": false,
+    "javascript.format.enable": false,
+    "less.validate": false,
+    "npm.validate.enable": false,
+    "php.validate.enable": false,
+    "typescript.validate.enable": false,
+    "scss.validate": false,
+    "typescript.format.enable": false,
+    "[jinja-html]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "sass.lint.enable": false,
     /* Global Editor */
+    // Files
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -17,5 +39,9 @@
         "**/CVS": true,
         "**/.DS_Store": true
     },
+    "files.associations": {
+        "*.html": "jinja-html"
+    },
+    // Spell Checker
     "cSpell.enabled": false
 }

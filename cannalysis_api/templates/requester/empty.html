@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div>
+    <h1>{% block title %}Request History{% endblock %}</h1>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <div>
+        <h2>No Requests Found</h2>
+    </div>
+    <div>
+        <p>
+            You do not have any requests created as of yet. Create a new one
+            <a class="action" href="{{ url_for('requester.new') }}">here</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}
