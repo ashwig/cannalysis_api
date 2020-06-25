@@ -6,7 +6,11 @@
 
 {% block content %}
 <form method="POST">
-    <label for="request_string">Request String</label>
+    <h2>Request Method</h3>
+    <label for="api_method"></label>
+    <input name="api_method" id="api_method" value="{{ request.form['api_method'] }}" REQUIRED>
+    <h3>Request String</h3>
+    <label for="request_string"></label>
     <input name="request_string" id="request_string" value="{{ request.form['request_string'] }}" required>
     <input type="submit" value="Save">
 </form>

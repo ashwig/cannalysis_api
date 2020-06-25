@@ -27,14 +27,23 @@ def get_metrc_resp_history(id, check_history):
     return metrc_resp
 
 
-@bp.route('/new', methods=('GET', 'POST'))
+@bp.route('/requester/new', methods=('GET', 'POST'))
 def new():
     if request.method == 'POST':
         request_string = request.form['request_string']
+        request_method = request.form['api_method']
+
+        print(request_method)
         error = None
 
         if not request_string:
             error = 'Request string is required.'
+
+        if not request_method:
+            error = 'Request method selection is required.'
+
+        if request_method != 'GET':
+            error = 'Only GET is supported for now.'
 
         if error is not None:
             flash(error)
